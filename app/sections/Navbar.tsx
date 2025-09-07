@@ -39,7 +39,7 @@ const Dropdown: React.FC<{
   items: Array<{ label: string; href: string }>;
 }> = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false);
-  let timeoutId: number;
+  let timeoutId: NodeJS.Timeout;
 
   const handleMouseEnter = () => {
     clearTimeout(timeoutId);
