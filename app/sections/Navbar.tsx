@@ -34,9 +34,12 @@ const navLinks = [
   },
 ];
 
-const Dropdown: React.FC<{ title: any; items: any }> = ({ title, items }) => {
+const Dropdown: React.FC<{
+  title: string;
+  items: Array<{ label: string; href: string }>;
+}> = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false);
-  let timeoutId: any;
+  let timeoutId: number;
 
   const handleMouseEnter = () => {
     clearTimeout(timeoutId);
@@ -63,7 +66,7 @@ const Dropdown: React.FC<{ title: any; items: any }> = ({ title, items }) => {
           isOpen ? "opacity-100 block" : "opacity-0 hidden"
         }`}
       >
-        {items.map((item: any, index: any) => (
+        {items.map((item, index: number) => (
           <Link
             key={index}
             href={item.href}
